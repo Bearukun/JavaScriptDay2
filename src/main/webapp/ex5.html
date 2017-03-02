@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    </head>
+    <body>
+        <div>Ex5</div>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Year</th>
+                    <th>Make</th>
+                    <th>Model</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody id="x">
+            </tbody>
+        </table>
+        Price: <input type="text" id="nn"><button id="btn">Price less then</button>
+
+        <script>
+
+            var cars = [
+                {id: 1, year: 1997, make: 'Ford', model: 'E350', price: 3000},
+                {id: 2, year: 1999, make: 'Chevy', model: 'Venture', price: 4900},
+                {id: 3, year: 2000, make: 'Chevy', model: 'Venture', price: 5000},
+                {id: 4, year: 1996, make: 'Jeep', model: 'Grand Cherokee', price: 4799},
+                {id: 5, year: 2005, make: 'Volvo', model: 'V70', price: 44799}
+            ];
+
+
+
+            function listMaker(arr) {
+
+                var lis = arr.map(function (car) {
+
+                    return  "<tr>" +
+                            "<td>" + car.id + "</td>" +
+                            "<td>" + car.year + "</td>" +
+                            "<td>" + car.make + "</td>" +
+                            "<td>" + car.model + "</td>" +
+                            "<td>" + car.price + "</td>" +
+                            "</tr>";
+
+                });
+
+                return lis.join("");
+
+            }
+            ;
+
+            document.getElementById("x").innerHTML = listMaker(cars);
+
+            function filterList(cars, price) {
+                
+                if(cars.price < price){
+                    console.log(cars.price);
+                    
+                    return cars;
+                    
+                }
+                               
+
+            }
+            ;
+
+
+            document.getElementById("btn").addEventListener("click", function () {
+
+                var nn = document.getElementById("nn").value;
+                var temp = cars.filter(filterList);
+                console.log(temp.length);
+                
+                
+                document.getElementById("x").innerHTML = listMaker();
+
+            });
+
+
+
+        </script>
+
+    </body>
+</html>

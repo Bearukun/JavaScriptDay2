@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>Ex4</div>
+        <div id="x"></div>
+        <input type="text" id="nn"><button id="btn">Add</button>
+        <button id="btnRf">Remove first</button>
+        <button id="btnRl">Remove last</button>
+        <script>
+
+            var names = ["Lars", "Peter", "Ida"];
+
+            function listMaker(arr) {
+
+                var lis = arr.map(function (name) {
+
+                    return "<li>" + name + "</li>";
+
+                });
+
+                return "<ul>" + lis.join("") + "</ul>";
+
+            }
+            ;
+
+            document.getElementById("x").innerHTML = listMaker(names);
+
+            document.getElementById("btn").addEventListener("click", function () {
+
+                var nn = document.getElementById("nn").value;
+                names.push(nn);
+                document.getElementById("x").innerHTML = listMaker(names);
+
+            });
+
+            document.getElementById("btnRf").addEventListener("click", function () {
+
+                names.shift();
+                document.getElementById("x").innerHTML = listMaker(names);
+
+            });
+
+            document.getElementById("btnRl").addEventListener("click", function () {
+
+                names.pop();
+                document.getElementById("x").innerHTML = listMaker(names);
+
+            });
+
+        </script>
+    </body>
+</html>
